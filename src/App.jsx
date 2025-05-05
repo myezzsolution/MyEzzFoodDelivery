@@ -140,7 +140,7 @@ function App() {
 
       // Send to Google Apps Script
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbz8cKWVFAV99qU1zE2de6DYoSff0iRXhOrgCOmEV5c3P_Lu7fJobvrMe1zbloNi8tan/exec",
+        "https://script.google.com/macros/s/AKfycbzGeWmquFvLXTxj7L4NDHUCLmx2Wq_ZyHq9jY0LQbzbnznqo6ELhYpp5noCxAyy4niI/exec",
         {
           method: "POST",
           headers: {
