@@ -113,63 +113,7 @@ function App() {
     setCart([]);
   };
 
-  // const handlePlaceOrder = async (customerInfo) => {
-  //   setIsSubmitting(true);
 
-  //   try {
-  //     // Prepare order data for Google Sheets
-  //     const orderItems = cart.map((item) => ({
-  //       name: item.name,
-  //       price: item.price,
-  //       quantity: item.quantity,
-  //       vendor: item.vendor,
-  //       total: item.price * item.quantity,
-  //     }));
-
-  //     const orderTotal = cart.reduce(
-  //       (total, item) => total + item.price * item.quantity,
-  //       0
-  //     );
-
-  //     const orderData = {
-  //       customer: customerInfo,
-  //       items: orderItems,
-  //       total: orderTotal,
-  //       orderDate: new Date().toISOString(),
-  //     };
-
-  //     // Send to Google Apps Script
-  //     const response = await fetch(
-  //       "https://script.google.com/macros/s/AKfycbxf0jZgAfuiQ1OlaUE_GewnQRy8M43hUowP_eLpOUcirjfXqqMYmv4QMEqMYSLRy6TL/exec",
-  //       {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify(orderData),
-  //         mode: "no-cors", // Google Apps Script requires this
-  //       }
-  //     );
-
-  //     setOrderResponse({
-  //       success: true,
-  //       message:
-  //         "Your order has been placed successfully! Check your email for confirmation.",
-  //     });
-
-  //     setOrderPlaced(true);
-  //     setShowOrderForm(false);
-  //     clearCart();
-  //   } catch (error) {
-  //     console.error("Error placing order:", error);
-  //     setOrderResponse({
-  //       success: false,
-  //       message: "There was an error placing your order. Please try again.",
-  //     });
-  //   } finally {
-  //     setIsSubmitting(false);
-  //   }
-  // };
 
   const handlePlaceOrder = async (customerInfo) => {
     setIsSubmitting(true);

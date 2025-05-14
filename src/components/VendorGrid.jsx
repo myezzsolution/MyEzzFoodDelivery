@@ -40,7 +40,8 @@ function VendorGrid({ vendors, setSelectedVendor }) {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
-        Select a vendor to view their offerings
+       <b>We deliver to your doorstep, not just the main gate — exclusively for Somaiyans.</b><br/> <strong>Quick Delivery:</strong> Arrives ~10 mins
+        after it's ready.<br/> <strong>Pre-Order:</strong> Schedule your order in advance.
       </motion.p>
 
       <motion.div
