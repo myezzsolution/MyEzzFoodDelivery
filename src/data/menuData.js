@@ -1030,7 +1030,7 @@ const menuData = [
     },
     {
         name: "Panishkar tasteaurant",
-        tagline: "",
+        tagline: "Traditional Indian flavors with a modern twist!",
         categories: [
             {
                 name: "Snacks",
@@ -1066,7 +1066,7 @@ const menuData = [
     },
     {
         name: "Dilkush Dabeli Center",
-        tagline: "",
+        tagline: "Authentic, spicy Dabelis that hit the spot!",
         categories: [
             {
                 name: "Dabeli",
@@ -1078,7 +1078,7 @@ const menuData = [
     },
     {
         name: "Sai Swad dosa Centre",
-        tagline: "",
+        tagline: "Crispy, flavorful dosas to delight your taste buds!",
         categories: [
             {
                 name: "Dosa",
@@ -1094,7 +1094,7 @@ const menuData = [
     },
     {
         name: "Cheese On Fire",
-        tagline: "",
+        tagline: "Melt-in-your-mouth cheese with a smoky kick!",
         categories: [
             {
                 name: "Fire Items",
@@ -1120,7 +1120,7 @@ const menuData = [
     },
     {
         name: "Momos Magic",
-        tagline: "",
+        tagline: "Steamy, delicious momos with magic in every bite!",
         categories: [
             {
                 name: "Steam Momos",
@@ -1156,7 +1156,7 @@ const menuData = [
     },
     {
         name: "Mocktails on Fire",
-        tagline: "",
+        tagline: "Refreshing mocktails with a fiery twist!",
         categories: [
             {
                 name: "Boba Pooping perals",
@@ -1179,7 +1179,7 @@ const menuData = [
                 ]
             },
             {
-                name: "Red Bull Bsse",
+                name: "Red Bull Base",
                 items: [
                     { id: "mof11", name: "Mojito", price: 180 },
                     { id: "mof12", name: "Red Kiwi", price: 180 },
@@ -1191,7 +1191,7 @@ const menuData = [
     },
     {
         name: "Chinese on Fire",
-        tagline: "",
+        tagline: "Fiery, spicy Chinese dishes that pack a punch!",
         categories: [
             {
                 name: "Rice",
@@ -1226,5 +1226,4 @@ const menuData = [
         ]
     }
 ];
-
 export default menuData
