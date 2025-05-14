@@ -113,50 +113,109 @@ function App() {
     setCart([]);
   };
 
+  // const handlePlaceOrder = async (customerInfo) => {
+  //   setIsSubmitting(true);
+
+  //   try {
+  //     // Prepare order data for Google Sheets
+  //     const orderItems = cart.map((item) => ({
+  //       name: item.name,
+  //       price: item.price,
+  //       quantity: item.quantity,
+  //       vendor: item.vendor,
+  //       total: item.price * item.quantity,
+  //     }));
+
+  //     const orderTotal = cart.reduce(
+  //       (total, item) => total + item.price * item.quantity,
+  //       0
+  //     );
+
+  //     const orderData = {
+  //       customer: customerInfo,
+  //       items: orderItems,
+  //       total: orderTotal,
+  //       orderDate: new Date().toISOString(),
+  //     };
+
+  //     // Send to Google Apps Script
+  //     const response = await fetch(
+  //       "https://script.google.com/macros/s/AKfycbxf0jZgAfuiQ1OlaUE_GewnQRy8M43hUowP_eLpOUcirjfXqqMYmv4QMEqMYSLRy6TL/exec",
+  //       {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify(orderData),
+  //         mode: "no-cors", // Google Apps Script requires this
+  //       }
+  //     );
+
+  //     setOrderResponse({
+  //       success: true,
+  //       message:
+  //         "Your order has been placed successfully! Check your email for confirmation.",
+  //     });
+
+  //     setOrderPlaced(true);
+  //     setShowOrderForm(false);
+  //     clearCart();
+  //   } catch (error) {
+  //     console.error("Error placing order:", error);
+  //     setOrderResponse({
+  //       success: false,
+  //       message: "There was an error placing your order. Please try again.",
+  //     });
+  //   } finally {
+  //     setIsSubmitting(false);
+  //   }
+  // };
+
   const handlePlaceOrder = async (customerInfo) => {
     setIsSubmitting(true);
-
+  
     try {
-      // Prepare order data for Google Sheets
+      // Prepare order data including Jain/Non-Jain and Portion Size
       const orderItems = cart.map((item) => ({
         name: item.name,
         price: item.price,
         quantity: item.quantity,
         vendor: item.vendor,
+        portion: item.portion || "Regular",  // Half or Full
+        preference: item.jain ? "Jain" : "Non-Jain", // Jain or Non-Jain
         total: item.price * item.quantity,
       }));
-
+  
       const orderTotal = cart.reduce(
         (total, item) => total + item.price * item.quantity,
         0
       );
-
+  
       const orderData = {
         customer: customerInfo,
         items: orderItems,
         total: orderTotal,
         orderDate: new Date().toISOString(),
       };
-
-      // Send to Google Apps Script
+  
+      // Send order data to Google Sheets
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbwWRyIoYLpXpd7Vz-6omYDArnm6ZogGP0y4CcvKdmZomJY-80EqE-_eWjNPij-ljsiK/exec",
+        "https://script.google.com/macros/s/AKfycbykq2IHzdfSrrlUcq_N6YicaY2xBNnaWQM-Vl0covOdgcsN0S_mJcNJgt-LYrjFAoYA/exec",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(orderData),
-          mode: "no-cors", // Google Apps Script requires this
+          mode: "no-cors",
         }
       );
-
+  
       setOrderResponse({
         success: true,
-        message:
-          "Your order has been placed successfully! Check your email for confirmation.",
+        message: "Your order has been placed successfully! Check your email for confirmation.",
       });
-
+  
       setOrderPlaced(true);
       setShowOrderForm(false);
       clearCart();
