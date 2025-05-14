@@ -1478,13 +1478,13 @@ const menuData = [
       },
     ],
   },
-  {
-    name: "Sandipani Mess",
-    tagline: "📅 Menu Changes Weekly. Just tap the WhatsApp icon at the bottom right of your screen to message us directly! 💬 We’ll send you the latest menu right away",
-    categories: [
+//   {
+//     name: "Sandipani Mess",
+//     tagline: "📅 Menu Changes Weekly. Just tap the WhatsApp icon at the bottom right of your screen to message us directly! 💬 We’ll send you the latest menu right away",
+//     categories: [
      
-    ],
-  },
+//     ],
+//   },
 ];
 
 export default menuData;
