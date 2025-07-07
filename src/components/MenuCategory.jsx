@@ -1,10 +1,10 @@
-// "use client";
 
-// import { motion } from "framer-motion";
-// import MenuItem from "./MenuItem";
 
-// function MenuCategory({ category, vendor, addToCart }) {
-//   const container = {
+//import { motion } from "framer-motion";
+//import MenuItem from "./MenuItem";
+
+//function MenuCategory({ category, vendor, addToCart }) {
+       //const container = {
 //     hidden: { opacity: 0 },
 //     show: {
 //       opacity: 1,
@@ -34,7 +34,7 @@
 // }
 
 // export default MenuCategory;
-"use client";
+
 
 import { motion } from "framer-motion";
 import MenuItem from "./MenuItem";

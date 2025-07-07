@@ -1224,6 +1224,394 @@ const menuData = [
                 ]
             }
         ]
+    },
+{
+        name: "Cool Refreshments",
+        tagline: "Smoothies, milkshakes, coffee & juices to refresh your day!",
+        categories: [
+            {
+                name: "Smoothies",
+                items: [
+                    { id: "cr1", name: "Mango Smoothies", price: 100 },
+                    { id: "cr2", name: "Chocolate Smoothies", price: 100 },
+                    { id: "cr3", name: "Mint & Vanilla Smoothies", price: 120 },
+                    { id: "cr4", name: "Walk Like an Egyptian Smoothies", price: 120 },
+                    { id: "cr5", name: "Strawberry Smoothies", price: 100 }
+                ]
+            },
+            {
+                name: "MilkShake",
+                items: [
+                    { id: "cr6", name: "Banana Bonkers MilkShake", price: 80 },
+                    { id: "cr7", name: "Chiku MilkShake", price: 90 },
+                    { id: "cr8", name: "Mango MilkShake", price: 90 },
+                    { id: "cr9", name: "Oreo Magic MilkShake", price: 110 },
+                    { id: "cr10", name: "Cadbury MilkShake", price: 110 },
+                    { id: "cr11", name: "5 star MilkShake", price: 110 }
+                ]
+            },
+            {
+                name: "Cold Coffee",
+                items: [
+                    { id: "cr12", name: "Rock Coffee", price: 50 },
+                    { id: "cr13", name: "MUD Coffee", price: 130 },
+                    { id: "cr14", name: "Oreo Coffee", price: 110 },
+                    { id: "cr15", name: "Cream & Cappuccino Coffee", price: 120 },
+                    { id: "cr16", name: "Chocolate Coffee", price: 100 }
+                ]
+            },
+            {
+                name: "Juice",
+                items: [
+                    { id: "cr17", name: "Fresh Lime", price: 40 },
+                    { id: "cr18", name: "Watermelon", price: 50 },
+                    { id: "cr19", name: "Mosambi", price: 50 },
+                    { id: "cr20", name: "Orange", price: 60 },
+                    { id: "cr21", name: "Masala Lime", price: 40 },
+                    { id: "cr22", name: "Ginger Lime", price: 40 }
+                ]
+            }
+        ]
+    },
+
+{
+        name: "S.K Pizza Corner",
+        tagline: "Your local pizza passion — fresh, flavorful, fun!",
+        timing: "10.00 AM - 11.00 PM",
+        categories: [
+            {
+                name: "Pizza",
+                items: [
+                    { id: "sk1", name: "Cheese Margherita", price: { small: 80, medium: 110 } },
+                    { id: "sk2", name: "Mix Veg", price: { small: 110, medium: 150 } },
+                    { id: "sk3", name: "Spicy Paneer", price: { small: 130, medium: 170 } },
+                    { id: "sk4", name: "Sweet & Spicy Paneer", price: { small: 130, medium: 170 } },
+                    { id: "sk5", name: "Veg Italian", price: { small: 140, medium: 180 } }
+                ]
+            },
+            {
+                name: "Salad",
+                items: [
+                    { id: "sk6", name: "Veg. Green Salad", price: 70 },
+                    { id: "sk7", name: "Potato Salad", price: 70 },
+                    { id: "sk8", name: "Coleslaw Salad", price: 80 },
+                    { id: "sk9", name: "Corn. Pineapple Salad", price: 80 },
+                    { id: "sk10", name: "Veg. Caesar Salad", price: 120 },
+                    { id: "sk11", name: "Caesar Salad Hot", price: 120 }
+                ]
+            },
+            {
+                name: "Pasta",
+                items: [
+                    {
+                        id: "sk12",
+                        name: "Penne & Fusilli",
+                        price: 175,
+                        description:
+                            "Pasta Red Sauce or White Sauce, Fresh Basil, Vegetables & Cheese, With 2Pcs Garlic Bread"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+  name: "Sandipani Mess",
+  tagline: "Meals that feel like maa made ‘em!",
+  timing: "Full menu changes weekly — message us for updates!",
+  contact: "+91 8097021356",
+  categories: [
+    {
+      name: "Info",
+      items: [
+        {
+          id: "sm1",
+          name: "Weekly Menu",
+          price: "Available on request",
+          description: "The food timetable changes every week. Just send 'Hi' to +91 8097021356 to get the latest menu."
+        },
+        {
+          id: "sm2",
+          name: "Full Menu Access",
+          price: "Request Only",
+          description: "Complete menu is available on request. Thank you for dining with us! Good food, good mood — only at MyEzz."
+        }
+      ]
     }
+  ]
+},
+
+{
+  name: "Hungrill",
+  tagline: "Where every bite and sip is a celebration of taste, tradition, and twist!",
+  timing: "2.00 PM - 12.00 AM",
+  categories: [
+    {
+      name: "Toast / Grill Sandwich",
+      items: [
+        { id: "hg1", name: "Veg Toast Sandwich", price: 70 },
+        { id: "hg2", name: "Potato Toast", price: 70 },
+        { id: "hg3", name: "Veg Masala Toast", price: 70 },
+        { id: "hg4", name: "Veg Cheese Toast", price: 120 },
+        { id: "hg5", name: "Veg Grill", price: 120 },
+        { id: "hg6", name: "Masala Grill", price: 120 },
+        { id: "hg7", name: "Veg Cheese Grill", price: 160 }
+      ]
+    },
+    {
+      name: "Time Pass",
+      items: [
+        { id: "hg8", name: "Bun Maska", price: 25 },
+        { id: "hg9", name: "Tutti Fruity Bun Maska", price: 30 },
+        { id: "hg10", name: "Samosa Grill Pav", price: 40 },
+        { id: "hg11", name: "Lays Pav", price: 40 },
+        { id: "hg12", name: "Garlic Bread", price: 40 }
+      ]
+    },
+    {
+      name: "Panini Grill",
+      items: [
+        { id: "hg13", name: "Peri Peri Grill Panini", price: 140 },
+        { id: "hg14", name: "Tandoori Paneer Grill Panini", price: 150 },
+        { id: "hg15", name: "Samosa Veg Cheese Grilled Sandwich", price: 190 },
+        { id: "hg16", name: "Malwani Grill Panini", price: 140 },
+        { id: "hg17", name: "Mexican Grill Panini", price: 140 }
+      ]
+    }
+  ]
+},
+
+{
+  name: "Shri Veggie Adda",
+  tagline: "We Serve Healthy, Fresh And Quality Food.",
+  timing: "1.00 PM - 12.00 AM",
+  categories: [
+    {
+      name: "Paneer In Tandoor",
+      items: [
+        { id: "sva1", name: "Paneer Tikka", price: 120 },
+        { id: "sva2", name: "Malai Paneer", price: 130 },
+        { id: "sva3", name: "Peri - Peri Paneer Tikka", price: 140 },
+        { id: "sva4", name: "Afgani Paneer Tikka", price: 150 },
+        { id: "sva5", name: "Hariyali Paneer Tikka", price: 140 }
+      ]
+    },
+    {
+      name: "Soya Chap in Tandoor",
+      items: [
+        { id: "sva6", name: "Chap Tikka", price: 130 },
+        { id: "sva7", name: "Malai Chap Tikka", price: 130 },
+        { id: "sva8", name: "Peri-Peri Chap Tikka", price: 130 },
+        { id: "sva9", name: "Afgani Chap Tikka", price: 140 },
+        { id: "sva10", name: "Chap Paneer Tikka", price: 200 }
+      ]
+    },
+    {
+      name: "Healthy & Tasty Wraps",
+      items: [
+        { id: "sva11", name: "Veg Wrap", price: 60 },
+        { id: "sva12", name: "Veg Cheese Wrap", price: 70 },
+        { id: "sva13", name: "Veg Schezwan Wrap", price: 80 },
+        { id: "sva14", name: "Veg Schezwan Cheese Wrap", price: 120 },
+        { id: "sva15", name: "Paneer Tika Wrap", price: 130 }
+      ]
+    },
+    {
+      name: "Healthy Wraps",
+      items: [
+        { id: "sva16", name: "Malai Paneer Tikka Wrap", price: 140 },
+        { id: "sva17", name: "Cheese Malai Paneer Tikka Wrap", price: 170 },
+        { id: "sva18", name: "Schezwan Manchurian Wrap", price: 130 },
+        { id: "sva19", name: "Cheese Manchurian Wrap", price: 130 },
+        { id: "sva20", name: "Veg Noodles Wrap", price: 100 },
+        { id: "sva21", name: "Manchurian Noodles Wrap", price: 120 }
+      ]
+    },
+    {
+      name: "Jain Healthy Wraps",
+      items: [
+        { id: "sva22", name: "Veg Jain Wrap", price: 90 },
+        { id: "sva23", name: "Veg Jain Cheese Wrap", price: 120 },
+        { id: "sva24", name: "Jain Falajel Wrap", price: 100 },
+        { id: "sva25", name: "Jain Cheese Falajel Wrap", price: 130 },
+        { id: "sva26", name: "Jain Manchurian Wrap", price: 100 },
+        { id: "sva27", name: "Jain Cheese Manchurian Wrap", price: 130 },
+        { id: "sva28", name: "Jain Noodles Wrap", price: 100 },
+        { id: "sva29", name: "Jain Paneer Noodles Wrap", price: 150 }
+      ]
+    }
+  ]
+},
+
+{
+  name: "The Tasty Table Fast Food Centre",
+  tagline: "We Serve Healthy, Fresh And Quality Food.",
+  timing: "12.00 PM - 12.00 AM",
+  categories: [
+    {
+      name: "Sandwiches",
+      items: [
+        { id: "ttt1", name: "Veg Sandwich", price: 60 },
+        { id: "ttt2", name: "Veg Toast Sandwich", price: 70 },
+        { id: "ttt3", name: "Samosa Toast Sandwich", price: 80 },
+        { id: "ttt4", name: "Veg Cheese Toast", price: 120 },
+        { id: "ttt5", name: "Samosa Cheese Toast", price: 140 }
+      ]
+    },
+    {
+      name: "Pizza",
+      items: [
+        { id: "ttt6", name: "Cheese Pizza", price: 150 },
+        { id: "ttt7", name: "Paneer Pasta Pizza", price: 200 },
+        { id: "ttt8", name: "Veg. Cheese Pizza", price: 170 },
+        { id: "ttt9", name: "Pahadi Pizza", price: 200 },
+        { id: "ttt10", name: "Paneer Tandoori Pizza", price: 230 }
+      ]
+    },
+    {
+      name: "T3's Pastas & Bread",
+      items: [
+        { id: "ttt11", name: "White Sauce Pasta", price: 230 },
+        { id: "ttt12", name: "Arrabiata Pasta", price: 230 },
+        { id: "ttt13", name: "Pink Sauce Pasta", price: 250 },
+        { id: "ttt14", name: "Corn Garlic Bread", price: 170 },
+        { id: "ttt15", name: "Cheese Garlic Bread", price: 240 },
+        { id: "ttt16", name: "Paneer Tikka Garlic Bread", price: 190 },
+        { id: "ttt17", name: "Paneer Chilli Garlic Bread", price: 160 },
+        { id: "ttt18", name: "Chilli Cheese Garlic Bread", price: 190 }
+      ]
+    },
+    {
+      name: "Samosa",
+      items: [
+        { id: "ttt19", name: "A1 Samosa", price: 20 },
+        { id: "ttt20", name: "A1 Samosa Pav", price: 30 },
+        { id: "ttt21", name: "A1 Cheese Samosa Pav", price: 50 }
+      ]
+    },
+    {
+      name: "Juices & Falooda",
+      items: [
+        { id: "ttt22", name: "Mosambi Juice", price: 80 },
+        { id: "ttt23", name: "Watermelon Juice", price: 60 },
+        { id: "ttt24", name: "Sitafal Falooda", price: 190 },
+        { id: "ttt25", name: "Rose Falooda", price: 190 },
+        { id: "ttt26", name: "Butterscotch Falooda", price: 190 },
+        { id: "ttt27", name: "Mango Falooda", price: 190 },
+        { id: "ttt28", name: "Thandai Falooda", price: 190 }
+      ]
+    }
+  ]
+},
+{
+  name: "Maharshtra Shashan",
+  tagline: "We Serve Healthy, Fresh And Quality Food.",
+  categories: [
+    {
+      name: "Frankie",
+      items: [
+        { id: "ms1", name: "Veg Amul Frankie", price: 30 },
+        { id: "ms2", name: "Veg Amul Cheese Frankie", price: 40 },
+        { id: "ms3", name: "Veg Amul Sezwan Frankie", price: 40 },
+        { id: "ms4", name: "Amul Mayonish Frankie", price: 40 },
+        { id: "ms5", name: "Veg Noodles Frankie", price: 50 },
+        { id: "ms6", name: "Veg Amul Sezwan Cheese Frankie", price: 50 },
+        { id: "ms7", name: "Veg Amul Sezwan Manchurian Frankie", price: 50 },
+        { id: "ms8", name: "Veg Noodles Cheese Frankie", price: 50 },
+        { id: "ms9", name: "Veg Noodles Sezwan Frankie", price: 50 },
+        { id: "ms10", name: "Amul Paneer Frankie", price: 60 }
+      ]
+    },
+    {
+      name: "Dabeli",
+      items: [
+        { id: "ms11", name: "Amul Dabeli", price: 20 },
+        { id: "ms12", name: "Amul Cheese Dabeli", price: 20 }
+      ]
+    },
+    {
+      name: "Pav Items",
+      items: [
+        { id: "ms13", name: "Cheese Samosa Pav", price: 35 },
+        { id: "ms14", name: "Samosa Cheese Grill Schezwan Pav", price: 50 },
+        { id: "ms15", name: "Samosa Pav", price: 22 },
+        { id: "ms16", name: "Gurukurpa A-1 Samosa", price: 18 }
+      ]
+    }
+  ]
+},
+{
+  name: "Panishkar Tasteaurant",
+  tagline: "Authentic Maharashtrian bites — rooted in flavor!",
+  timing: "8.00 AM - 10.00 PM",
+  categories: [
+    {
+      name: "Snacks",
+      items: [
+        { id: "pt1", name: "Sweet Sheera", price: 70 },
+        { id: "pt2", name: "Ulta VadaPav", price: 35 },
+        { id: "pt3", name: "Vadapav (2 PC)", price: 60 },
+        { id: "pt4", name: "Sp. Misal Pav (2 Pav)", price: 110 },
+        { id: "pt5", name: "Kothimbir Wadi", price: 100 }
+      ]
+    },
+    {
+      name: "Jain Items",
+      items: [
+        { id: "pt6", name: "Jain Vadapav (2pc) (banana)", price: 60 },
+        { id: "pt7", name: "Jain Misal Pav", price: 110 },
+        { id: "pt8", name: "Jain Kothmir Wadi", price: 100 },
+        { id: "pt9", name: "Jain Sabudana Wada", price: 100 },
+        { id: "pt10", name: "Jain Farali Misal", price: 100 }
+      ]
+    },
+    {
+      name: "Cold Beverages",
+      items: [
+        { id: "pt11", name: "Piyush", price: 60 },
+        { id: "pt12", name: "Lassi", price: 50 },
+        { id: "pt13", name: "Mango Lassi", price: 75 },
+        { id: "pt14", name: "Solkadhi", price: 40 },
+        { id: "pt15", name: "Masala Chaas", price: 30 }
+      ]
+    }
+  ]
+},
+{
+  name: "Uncles Corner",
+  tagline: "Street food classics — grilled to perfection!",
+  timing: "11.00 AM - 8.00 PM",
+  categories: [
+    {
+      name: "Samosa & Grilled Pav",
+      items: [
+        { id: "uc1", name: "Grilled Samosa Pav", price: 40 },
+        { id: "uc2", name: "Cheese Grilled Samosa Pav", price: 55 },
+        { id: "uc3", name: "Grilled Lays Pav", price: 35 },
+        { id: "uc4", name: "Cheese Grilled Lays Pav", price: 50 }
+      ]
+    },
+    {
+      name: "Sandwich",
+      items: [
+        { id: "uc5", name: "Veg Sandwich", price: 55 },
+        { id: "uc6", name: "Grilled Veg Sandwich", price: 65 },
+        { id: "uc7", name: "Veg Lays Sandwich", price: 65 },
+        { id: "uc8", name: "Potato Sandwich", price: 50 },
+        { id: "uc9", name: "Veg Samosa Sandwich", price: 75 }
+      ]
+    },
+    {
+      name: "Cheese Sandwich",
+      items: [
+        { id: "uc10", name: "Cheese Veg Sandwich", price: 70 },
+        { id: "uc11", name: "Cheese Grilled Veg Sandwich", price: 85 },
+        { id: "uc12", name: "Cheese Veg Lays Sandwich", price: 80 },
+        { id: "uc13", name: "Cheese Veg Samosa Sandwich", price: 90 },
+        { id: "uc14", name: "Cheese Veg Samosa Lays Sandwich", price: 100 }
+      ]
+    }
+  ]
+}
+
 ];
 export default menuData

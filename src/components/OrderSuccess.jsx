@@ -1,59 +1,36 @@
-"use client";
-
-import { motion } from "framer-motion";
+import React from "react";
+import { QRCodeCanvas } from 'qrcode.react'; // ✅ FIXED
 
 function OrderSuccess({ response }) {
+  const orderId = Math.floor(100000 + Math.random() * 900000); // Simulated order ID
+
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.9 }}
-      transition={{ duration: 0.3 }}
-      className={`${
-        response?.success
-          ? "bg-green-100 border-green-400 text-green-700"
-          : "bg-red-100 border-red-400 text-red-700"
-      } border px-4 py-3 rounded-lg`}
-    >
-      <div className="flex items-center">
-        {response?.success ? (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 mr-2"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              fillRule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-              clipRule="evenodd"
-            />
-          </svg>
-        ) : (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 mr-2"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              fillRule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
-              clipRule="evenodd"
-            />
-          </svg>
-        )}
-        <p className="font-medium">
-          {response?.message || "Order status updated"}
-        </p>
+    <div className="p-6 text-center">
+      <h2 className="text-2xl font-semibold text-green-600 mb-2">
+        ✅ Your order has been placed successfully!
+      </h2>
+      <p className="mb-4 text-gray-700">
+        Thank you for ordering with MyEzz! You'll receive a confirmation email shortly.
+      </p>
+
+      <div className="bg-gray-100 p-4 rounded shadow-md inline-block text-left">
+        <p><strong>Order ID:</strong> #{orderId}</p>
+        <p><strong>Status:</strong> Confirmed</p>
+        <p><strong>Payment:</strong> {response?.paymentMethod?.toUpperCase() || "Paid"}</p>
       </div>
-      {response?.success && (
-        <p className="text-sm mt-2">
-          Thank you for your order. You will receive a confirmation email
-          shortly.
-        </p>
-      )}
-    </motion.div>
+
+      <div className="my-6">
+        <QRCodeCanvas value={`Order ID: ${orderId}`} size={128} />
+        <p className="text-sm text-gray-500 mt-2">Scan to verify order</p>
+      </div>
+
+      <button
+        onClick={() => window.print()}
+        className="mt-4 px-6 py-2 bg-sky-600 text-white rounded hover:bg-sky-700"
+      >
+        🖨️ Print Receipt
+      </button>
+    </div>
   );
 }
 

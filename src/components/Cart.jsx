@@ -1,4 +1,4 @@
-// "use client";
+// 
 
 // import { motion, AnimatePresence } from "framer-motion";
 
@@ -197,7 +197,7 @@
 // export default Cart;
 
 
-"use client";
+
 
 import { motion, AnimatePresence } from "framer-motion";
 

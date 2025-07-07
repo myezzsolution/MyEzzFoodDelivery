@@ -1,4 +1,4 @@
-// "use client";
+// 
 
 // import { useRef } from "react";
 // import { motion, useInView } from "framer-motion";
@@ -105,7 +105,7 @@
 // }
 
 // export default VendorGrid;
-"use client";
+
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
