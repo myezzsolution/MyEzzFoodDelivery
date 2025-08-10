@@ -664,6 +664,10 @@ const menuData = [
     {
         name: "Patel Juice Centre",
         tagline: "Where every bite and sip is a celebration of taste, tradition, and twist!",
+        jain: false,
+        availableAfter: "00:00", // Always open
+        jain: true,
+        availableAfter: "22:00", // Opens at 10 PM
         categories: [
             {
                 name: "Milkshake",
@@ -700,6 +704,8 @@ const menuData = [
     {
         name: "B.E Bytes",
         tagline: "Bite-sized happiness, served hot & fresh!",
+        jain: true,
+        availableAfter: "17:00", // Opens at 5 PM
         categories: [
             {
                 name: "Pav Items",
@@ -735,6 +741,8 @@ const menuData = [
     {
         name: "Sai Krupa Amritsar Kulcha",
         tagline: "Kulchas with soul, straight from Amritsar!",
+        jain: true,
+        availableAfter: "21:00", // Opens at 5 PM
         categories: [
             {
                 name: "Kulcha",
@@ -770,6 +778,8 @@ const menuData = [
     {
         name: "Ramanandi - Bajra Pizza",
         tagline: "Tradition meets innovation – guilt-free pizza joy!",
+        jain: true,
+        availableAfter: "17:00", // Opens at 5 PM
         categories: [
             {
                 name: "Bhakri Pizza(Wheat)",
@@ -796,6 +806,8 @@ const menuData = [
     {
         name: "House of Sushi",
         tagline: "Roll with us to Japan & Vietnam!",
+        jain: true,
+        availableAfter: "17:00", // Opens at 5 PM
         categories: [
             {
                 name: "Sushi",

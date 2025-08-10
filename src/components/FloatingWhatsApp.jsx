@@ -39,7 +39,7 @@ function FloatingWhatsApp({ phoneNumber, accountName }) {
               <div>
                 <h3 className="font-bold text-gray-800">{accountName}</h3>
                 <p className="text-sm text-gray-600">
-                  Typically replies within an hour
+                  Typically replies within an Minutes
                 </p>
               </div>
             </div>

@@ -1,15 +1,47 @@
-// src/App.jsx
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import PaymentPage from "./components/PaymentPage";
 import OrderSuccess from "./components/OrderSuccess";
 
+// Auth pages
+import Login from "./auth/Login.jsx";
+import Register from "./auth/Register.jsx";
+import OTPVerification from "./auth/OTPVerification.jsx";
+import ProtectedRoute from "./auth/ProtectedRoute.jsx";
+
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/payment" element={<PaymentPage />} />
-      <Route path="/success" element={<OrderSuccess />} />
+      {/* Public routes */}
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/otp-verify" element={<OTPVerification />} />
+
+      {/* Protected routes */}
+      <Route
+        path="/"
+        element={
+          <ProtectedRoute>
+            <HomePage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/payment"
+        element={
+          <ProtectedRoute>
+            <PaymentPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/success"
+        element={
+          <ProtectedRoute>
+            <OrderSuccess />
+          </ProtectedRoute>
+        }
+      />
     </Routes>
   );
 }

@@ -1,215 +1,93 @@
-// 
+// src/components/VendorGrid.jsx
+import React from "react";
 
-// import { useRef } from "react";
-// import { motion, useInView } from "framer-motion";
+const isVendorOpen = (vendor) => {
+  if (!vendor.availableAfter) return true;
+  const [vendorHour, vendorMinute] = vendor.availableAfter.split(":").map(Number);
+  const vendorMinutes = vendorHour * 60 + vendorMinute;
+  const now = new Date();
+  const currentMinutes = now.getHours() * 60 + now.getMinutes();
+  return currentMinutes >= vendorMinutes;
+};
 
-// function VendorGrid({ vendors, setSelectedVendor }) {
-//   const ref = useRef(null);
-//   const isInView = useInView(ref, { once: false, amount: 0.2 });
+const vendorInitials = (name) => {
+  if (!name) return "V";
+  const parts = name.split(" ");
+  return (parts[0]?.[0] || "") + (parts[1]?.[0] || "");
+};
 
-//   const container = {
-//     hidden: { opacity: 0 },
-//     show: {
-//       opacity: 1,
-//       transition: {
-//         staggerChildren: 0.1,
-//         delayChildren: 0.2,
-//       },
-//     },
-//   };
-
-//   const item = {
-//     hidden: { opacity: 0, y: 30 },
-//     show: { opacity: 1, y: 0 },
-//   };
-
-//   return (
-//     <div className="py-16 bg-gradient-to-b from-white via-sky-50 to-white min-h-screen">
-//       <motion.h2
-//         className="text-4xl font-bold text-sky-800 mb-4 text-center"
-//         initial={{ opacity: 0, y: -30 }}
-//         animate={{ opacity: 1, y: 0 }}
-//         transition={{ duration: 0.6 }}
-//       >
-//         Explore Our Trusted Vendors
-//       </motion.h2>
-
-//       <motion.p
-//         className="text-gray-600 mb-12 text-center text-lg"
-//         initial={{ opacity: 0 }}
-//         animate={{ opacity: 1 }}
-//         transition={{ duration: 0.6, delay: 0.2 }}
-//       >
-//        <b>We deliver to your doorstep, not just the main gate — exclusively for Somaiyans.</b><br/> <strong>Quick Delivery:</strong> Arrives ~10 mins
-//         after it's ready.<br/> <strong>Pre-Order:</strong> Schedule your order in advance.
-//       </motion.p>
-
-//       <motion.div
-//         ref={ref}
-//         variants={container}
-//         initial="hidden"
-//         animate={isInView ? "show" : "hidden"}
-//         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-6"
-//       >
-//         {vendors.map((vendor) => (
-//           <motion.div
-//             key={vendor.name}
-//             variants={item}
-//             onClick={() => setSelectedVendor(vendor)}
-//             className="group relative bg-white border border-sky-100 rounded-xl shadow-md hover:shadow-xl transition-shadow cursor-pointer overflow-hidden"
-//             whileHover={{ scale: 1.02 }}
-//             whileTap={{ scale: 0.98 }}
-//           >
-//             {/* Top color band */}
-//             <div className="h-2 bg-gradient-to-r from-sky-500 via-indigo-500 to-sky-600"></div>
-
-//             {/* Card Content */}
-//             <div className="p-6 space-y-4">
-//               <h3 className="text-2xl font-semibold text-gray-800">
-//                 {vendor.name}
-//               </h3>
-//               <p className="text-gray-500 italic">{vendor.tagline}</p>
-
-//               <div className="flex flex-wrap gap-2">
-//                 {vendor.categories.map((category) => (
-//                   <span
-//                     key={category.name}
-//                     className="text-sm bg-sky-100 text-sky-700 px-3 py-1 rounded-full"
-//                   >
-//                     {category.name}
-//                   </span>
-//                 ))}
-//               </div>
-
-//               <div className="text-gray-500 text-sm">
-//                 {vendor.categories.reduce(
-//                   (total, category) => total + category.items.length,
-//                   0
-//                 )}{" "}
-//                 items available
-//               </div>
-//             </div>
-
-//             {/* Hover-Visible Button */}
-//             <motion.div
-//               className="absolute bottom-4 right-4 bg-sky-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
-//               whileHover={{ x: 4 }}
-//             >
-//               View Menu →
-//             </motion.div>
-//           </motion.div>
-//         ))}
-//       </motion.div>
-//     </div>
-//   );
-// }
-
-// export default VendorGrid;
-
-
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
-
-function VendorGrid({ vendors = [], setSelectedVendor }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, amount: 0.1 });
-
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0 },
-  };
-
+function VendorGrid({ vendors = [], setSelectedVendor, showOnlyJain }) {
   return (
-    <div className="py-16 bg-gradient-to-b from-white via-sky-50 to-white min-h-screen">
-      <motion.h2
-        className="text-3xl sm:text-4xl font-bold text-sky-800 mb-4 text-center"
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        Explore Our Trusted Vendors
-      </motion.h2>
-
-      <motion.p
-        className="text-gray-600 mb-12 text-center text-base sm:text-lg px-4"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-      >
-        <b>We deliver to your doorstep, not just the main gate — exclusively for Somaiyans.</b><br />
-        <strong>Quick Delivery:</strong> Arrives ~10 mins after it's ready.<br />
-        <strong>Pre-Order:</strong> Schedule your order in advance.
-      </motion.p>
-
-      {vendors.length === 0 ? (
-        <p className="text-center text-gray-500">No vendors found.</p>
-      ) : (
-        <motion.div
-          ref={ref}
-          variants={container}
-          initial="hidden"
-          animate={isInView ? "show" : "hidden"}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 sm:px-6"
-        >
-          {vendors.map((vendor) => (
-            <motion.div
-              key={vendor.name}
-              variants={item}
-              onClick={() => setSelectedVendor?.(vendor)}
-              className="group relative bg-white border border-sky-100 rounded-xl shadow-md hover:shadow-xl transition-shadow cursor-pointer overflow-hidden"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {vendors
+        .filter((vendor) => (showOnlyJain ? vendor.jain : true))
+        .map((vendor, idx) => {
+          const open = isVendorOpen(vendor);
+          const itemsCount = vendor.categories?.reduce(
+            (sum, c) => sum + (c.items?.length || 0),
+            0
+          );
+          return (
+            <article
+              key={idx}
+              className={`relative cursor-pointer border rounded-lg p-4 shadow-sm hover:shadow-lg transition-transform duration-200 bg-white flex flex-col justify-between ${
+                !open ? "opacity-60" : "hover:-translate-y-1"
+              }`}
+              onClick={() => open && setSelectedVendor(vendor)}
+              aria-disabled={!open}
             >
-              {/* Top color band */}
-              <div className="h-2 bg-gradient-to-r from-sky-500 via-indigo-500 to-sky-600"></div>
-
-              {/* Card Content */}
-              <div className="p-6 space-y-4">
-                <h3 className="text-xl font-semibold text-gray-800">{vendor.name}</h3>
-                <p className="text-gray-500 italic">{vendor.tagline}</p>
-
-                <div className="flex flex-wrap gap-2">
-                  {vendor.categories?.map((category) => (
-                    <span
-                      key={category.name}
-                      className="text-sm bg-sky-100 text-sky-700 px-3 py-1 rounded-full"
-                    >
-                      {category.name}
-                    </span>
-                  ))}
+              <div className="flex items-start gap-4">
+                {/* Avatar / hero */}
+                <div className="w-16 h-16 rounded-lg flex items-center justify-center text-xl font-bold text-white"
+                     style={{
+                       background: "linear-gradient(135deg,#06b6d4,#3b82f6)"
+                     }}>
+                  {vendorInitials(vendor.name)}
                 </div>
 
-                <div className="text-gray-500 text-sm">
-                  {vendor.categories?.reduce(
-                    (total, category) => total + (category.items?.length || 0),
-                    0
-                  )}{" "}
-                  items available
+                {/* Name & tagline */}
+                <div className="flex-1">
+                  <h3 className="text-lg font-semibold text-gray-800">{vendor.name}</h3>
+                  <p className="text-sm text-gray-500 mt-1 line-clamp-2">{vendor.tagline}</p>
+
+                  <div className="flex items-center gap-3 mt-3">
+                    <span className={`text-sm font-medium ${vendor.jain ? "text-green-600" : "text-red-600"}`}>
+                      {vendor.jain ? "Jain" : "Non-Jain"}
+                    </span>
+
+                    <span className={`text-xs px-2 py-1 rounded-full ${open ? "bg-green-50 text-green-700" : "bg-red-50 text-red-700"}`}>
+                      {open ? "Open" : "Closed"}
+                    </span>
+                  </div>
                 </div>
               </div>
 
-              {/* Hover Button */}
-              <motion.div
-                className="absolute bottom-4 right-4 bg-sky-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
-                whileHover={{ x: 4 }}
-              >
-                View Menu →
-              </motion.div>
-            </motion.div>
-          ))}
-        </motion.div>
-      )}
+              {/* Footer: items count, optional rating, CTA */}
+              <div className="mt-4 flex items-center justify-between">
+                <div className="text-sm text-gray-500">
+                  {itemsCount} items • {vendor.estimatedTime || "20-35 min"}
+                </div>
+
+                <div className="flex items-center gap-2">
+                  {/* Rating placeholder (if vendor.rating exists, show it) */}
+                  {vendor.rating ? (
+                    <div className="flex items-center text-sm text-yellow-600 font-semibold">
+                      <svg className="w-4 h-4 mr-1" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.974a1 1 0 00.95.69h4.178c.969 0 1.371 1.24.588 1.81l-3.38 2.455a1 1 0 00-.364 1.118l1.287 3.974c.3.921-.755 1.688-1.54 1.118l-3.38-2.455a1 1 0 00-1.176 0l-3.38 2.455c-.784.57-1.84-.197-1.54-1.118l1.287-3.974a1 1 0 00-.364-1.118L2.047 9.4c-.783-.57-.38-1.81.588-1.81h4.178a1 1 0 00.95-.69l1.286-3.974z"/></svg>
+                      {vendor.rating}
+                    </div>
+                  ) : null}
+
+                  <button
+                    className={`px-3 py-1 rounded-full text-sm font-medium ${open ? "bg-sky-600 text-white" : "bg-gray-200 text-gray-600"} `}
+                    onClick={(e) => { e.stopPropagation(); open && setSelectedVendor(vendor); }}
+                  >
+                    {open ? "View Menu" : "Closed"}
+                  </button>
+                </div>
+              </div>
+            </article>
+          );
+        })}
     </div>
   );
 }

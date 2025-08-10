@@ -1,4 +1,3 @@
-// src/components/HomePage.jsx
 import { useState, useRef, useEffect } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
@@ -10,13 +9,15 @@ import VendorGrid from "./VendorGrid";
 import VendorMenu from "./VendorMenu";
 import FloatingWhatsApp from "./FloatingWhatsApp";
 import menuData from "../data/menuData";
+import SearchBar from "./SearchBar";
 
 function HomePage() {
   const [cart, setCart] = useState([]);
   const [showOrderForm, setShowOrderForm] = useState(false);
   const [selectedVendor, setSelectedVendor] = useState(null);
   const [showCart, setShowCart] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showOnlyJain, setShowOnlyJain] = useState(false);
+
   const appRef = useRef(null);
   const navigate = useNavigate();
 
@@ -66,22 +67,55 @@ function HomePage() {
     setShowCart(false);
   };
 
+  const handleDishSearchSelect = (dish) => {
+    const dishWithQuantity = { ...dish, vendor: dish.vendorName, quantity: 1 };
+    addToCart(dishWithQuantity);
+    navigate("/payment", { state: { customerInfo: null, cart: [dishWithQuantity] } });
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("myezz_user");
+    navigate("/login");
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-white to-sky-50" ref={appRef}>
       <motion.div style={{ opacity: headerOpacity, scale: headerScale }} className="sticky top-0 z-10">
         <Header cartItemCount={cartItemCount} toggleCart={() => setShowCart(!showCart)} />
+        <div className="p-4 flex justify-end">
+          <button
+            onClick={handleLogout}
+            className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+          >
+            Logout
+          </button>
+        </div>
       </motion.div>
 
+      
+
       <div className="container mx-auto px-4 py-8 relative">
-        <VendorGrid vendors={menuData} setSelectedVendor={setSelectedVendor} />
+        <div className="mb-6">
+          <SearchBar menuData={menuData} onDishSelect={handleDishSearchSelect} />
+        </div>
+
+        <div className="mb-6 flex justify-center">
+          <label className="flex items-center space-x-2 bg-gray-100 p-2 rounded shadow-sm">
+            <input
+              type="checkbox"
+              checked={showOnlyJain}
+              onChange={() => setShowOnlyJain(!showOnlyJain)}
+              className="form-checkbox h-4 w-4 text-green-600"
+            />
+            <span className="text-sm font-medium text-gray-700">Show Only Jain Vendors</span>
+          </label>
+        </div>
+
+        <VendorGrid vendors={menuData} showOnlyJain={showOnlyJain} setSelectedVendor={setSelectedVendor} />
 
         <AnimatePresence>
           {selectedVendor && (
-            <VendorMenu
-              vendor={selectedVendor}
-              closeMenu={() => setSelectedVendor(null)}
-              addToCart={addToCart}
-            />
+            <VendorMenu vendor={selectedVendor} closeMenu={() => setSelectedVendor(null)} addToCart={addToCart} />
           )}
         </AnimatePresence>
 
@@ -105,7 +139,6 @@ function HomePage() {
                     closeCart={() => setShowCart(false)}
                   />
                 </div>
-
                 <AnimatePresence>
                   {showOrderForm && (
                     <motion.div
@@ -115,12 +148,7 @@ function HomePage() {
                       transition={{ duration: 0.3 }}
                       className="p-4 border-t border-gray-200"
                     >
-                      <OrderForm
-                        cart={cart}
-                        onSubmit={handleOrderFormSubmit}
-                        onCancel={() => setShowOrderForm(false)}
-                        isSubmitting={isSubmitting}
-                      />
+                      <OrderForm cart={cart} onSubmit={handleOrderFormSubmit} onCancel={() => setShowOrderForm(false)} />
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -132,12 +160,7 @@ function HomePage() {
 
       <FloatingWhatsApp phoneNumber="+918097021356" accountName="MyEzz Support" />
 
-      <footer className="bg-sky-800 text-white py-6 mt-12">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-lg font-semibold">⚡ MyEzz ⚡</p>
-          <p className="mt-2">Good food, good mood — only at MyEzz.</p>
-        </div>
-      </footer>
+      
     </div>
   );
 }
